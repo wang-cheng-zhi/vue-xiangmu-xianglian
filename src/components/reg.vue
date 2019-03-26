@@ -5,13 +5,9 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      active:1
-    }
-  },
-};
+  export default {
+
+  }
 </script>
 
 <style scoped>
