@@ -6,6 +6,7 @@ import Search from '@/components/Search'
 import Cart from '@/components/Cart'
 import Shop from "@/components/Shop"
 import Detail from  '@/components/Detail'
+import TuwenDetail from "@/components/TuwenDetail"
 
 Vue.use(Router)
 
@@ -35,7 +36,14 @@ export default new Router({
     {
       path:"/detail",
       name:'Detail',
-      component:Detail
+      component:Detail,
+      children:[
+        {
+          path:"/detail/tuwendetail",
+          name:"TuwenDetail",
+          component:TuwenDetail,
+        }
+      ]
     }
   ]
 })

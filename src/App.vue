@@ -36,34 +36,7 @@ export default {
   },
   methods: {
     navChangeHandle(){
-      switch(this.active) {
-        case 0:
-          this.$router.push({
-            name: 'Index'
-          })
-        break;
-        case 1:
-          this.$router.push({
-            name: 'Search'
-          })
-        break;
-        case 2:
-          this.$router.push({
-            name: 'Shop'
-          })
-        break;
-        case 3:
-          this.$router.push({
-            name: 'Cart'
-          })
-        break;
-        case 4:
-          this.$router.push({
-            name: 'MyOne'
-          })
-        break;
 
-      }
     }
   },
 }

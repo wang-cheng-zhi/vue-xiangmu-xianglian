@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <van-nav-bar title="商品详情" left-text="返回" left-arrow>
+      <van-nav-bar title="商品详情" left-text="返回" @click-left="ToCart()" left-arrow @click-right="ToShop()">
         <van-icon name="search" slot="right" />
       </van-nav-bar>
     </header>
@@ -15,7 +15,10 @@
       <div class="detail-title">爱媛38号&nbsp;&nbsp;&nbsp;(大果)&nbsp;&nbsp;8斤装&nbsp;&nbsp;&nbsp;&nbsp;果实颗粒饱满多汁</div>
       <div class="detail-price">价格￥ 78.0</div>
       <div class="detail-color"><span class="detail-color-size">颜色</span><div class="detail-color-fenlei">红色</div></div>
-      <div class="detail-tuwen"><div class="detail-tuwen-firstdiv">图文详情</div><div  class="detail-tuwen-seconddiv"><i>></i></div></div>
+      <div class="detail-tuwen" @click="ToTuwenDetail()">
+        <div class="detail-tuwen-firstdiv" >图文详情</div>
+        <div  class="detail-tuwen-seconddiv"><i>></i></div>
+      </div>
       <ul class="detail-firstul">
           <li><img src="../images/detail-4.gif"/>原装正品</li>
           <li><img src="../images/detail-4.gif"/>闪电发货</li>
@@ -40,11 +43,6 @@
   </div>
 </template>
 
-
-
-
-
-
 <script>
 export default {
   name:"Detail",
@@ -54,7 +52,15 @@ export default {
     }
   },
   methods: {
-
+    ToCart(){
+        history.go(-1)
+    },
+    ToShop(){
+      this.$router.push("/shop")
+    },
+    ToTuwenDetail(){
+      this.$router.push("/tuwendetail")
+    }
   },
 }
 </script>
@@ -65,7 +71,7 @@ export default {
 .van-swipe img{width: 100%;}
 .van-submit-bar{bottom: 1.7rem;}
 .van-goods-div-action{height: 0.5rem;width: 100%;}
-.van-goods-action{margin-bottom: 1.7rem;}
+.van-goods-action{z-index: 10;}
 .detail-title{font-size: 0.44rem;color: #000000;line-height: 1.3rem;padding: 0 0.75rem 0 0.33rem;
 overflow: hidden;height: 1.3rem;}
 .detail-price{font-size: 0.44rem;color: #ff0000;padding: 0.33rem;}
