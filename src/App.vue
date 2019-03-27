@@ -79,5 +79,8 @@ a{text-decoration:none;}
 #box{
   height:100vh;
 }
-
+*{
+  margin: 0;
+  padding: 0;
+}
 </style>

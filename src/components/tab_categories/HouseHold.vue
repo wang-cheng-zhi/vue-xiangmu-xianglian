@@ -1,17 +1,13 @@
 <template>
   <div>
-
+    <h1>家居</h1>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      active:1
-    }
-  },
-};
+  export default {
+
+  }
 </script>
 
 <style scoped>
