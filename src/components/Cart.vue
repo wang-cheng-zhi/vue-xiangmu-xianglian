@@ -64,7 +64,6 @@ header{display: block}
 .van-card{
   padding:0.05rem 0;width: 10rem
 }
-.van-card__content{}
 section{margin-bottom: 0.55rem;}
 .van-submit-bar{bottom: 1.7rem;}
 </style>
