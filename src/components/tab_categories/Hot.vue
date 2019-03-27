@@ -82,6 +82,8 @@ export default {
 }
 .w-buttom {
   font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center
 }
 .ti1 {
   width: 92%;
