@@ -5,8 +5,10 @@ import MyOne from '@/components/MyOne'
 import Search from '@/components/Search'
 import Cart from '@/components/Cart'
 import Shop from "@/components/Shop"
-import Detail from '@/components/Detail'
+import Detail from  '@/components/Detail'
+import TuwenDetail from "@/components/TuwenDetail"
 import Login from '@/components/Login'
+
 
 
 Vue.use(Router)
@@ -42,5 +44,17 @@ export default new Router({
       name: 'Login',
       component: Login
     },
+    {
+      path:"/detail",
+      name:'Detail',
+      component:Detail,
+      children:[
+        {
+          path:"/detail/tuwendetail",
+          name:"TuwenDetail",
+          component:TuwenDetail,
+        }
+      ]
+    }
   ]
 })
