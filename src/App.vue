@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <router-view @footactive="getactive" />
-
       <van-tabbar v-model="active" active-color="#fa2c5c">
         <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
         <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
@@ -12,6 +11,19 @@
 </template>
 
 <script>
+window.onload = function(){
+/*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+   为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
+   getRem(1080,100)
+   };
+   window.onresize = function(){
+   getRem(1080,100)
+   };
+   function getRem(pwidth,prem){
+   var html = document.getElementsByTagName("html")[0];
+   var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+    html.style.fontSize = oWidth/pwidth*prem + "px";
+	}
 export default {
   name: 'App',
   data(){
@@ -32,4 +44,17 @@ export default {
 
 <style>
 van-tabbar-item--active{color:#fa2c5c}
+html,body,div,header,footer,section,article,ul,li,h1,h2,h3,h4,h5,h6,dl,dd,dt,p,span,i,input,button{
+	margin:0;
+	padding:0;
+}
+li{list-style:none;}
+a{text-decoration:none;}
+#box{
+  height:100vh;
+}
+*{
+  margin: 0;
+  padding: 0;
+}
 </style>
