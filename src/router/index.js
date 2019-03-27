@@ -36,10 +36,6 @@ export default new Router({
       name: "Shop",
       component: Shop
     }, {
-      path: "/detail",
-      name: 'Detail',
-      component: Detail
-    },{
       path: '/login',
       name: 'Login',
       component: Login
