@@ -36,7 +36,6 @@ export default {
   methods:{
 		getactive(msg){
       this.active = msg;
-      console.log(msg)
 		}
   }
 }

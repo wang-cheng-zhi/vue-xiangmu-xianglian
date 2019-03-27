@@ -1,5 +1,5 @@
 <template>
-  <div class="shop">
+  <!-- <div class="shop">
     <header>
       <van-nav-bar title="购物车" left-text="返回" left-arrow>
         <van-icon name="search" slot="right" />
@@ -38,7 +38,7 @@
           </van-submit-bar>
         </div>
     </section>
-  <div>
+  <div> -->
 </template>
 
 <script>
