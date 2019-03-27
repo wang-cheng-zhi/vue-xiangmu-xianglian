@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import MyOne from '@/components/MyOne'
 import Search from '@/components/Search'
 import Cart from '@/components/Cart'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
       path: '/search',
       name: 'Search',
       component: Search
+    },{
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
   ]
 })

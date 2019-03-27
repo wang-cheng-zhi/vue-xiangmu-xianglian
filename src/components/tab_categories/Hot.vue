@@ -10,11 +10,21 @@
 
     <div class="w">
       <van-row class="w-top" type="flex" justify="space-between">
-        <van-col span="4"><van-icon name="coupon-o" size="3.3em" color="#f646d5"/></van-col>
-        <van-col span="4"><van-icon name="gift-o" size="3.3em" color="#9c4de6"/></van-col>
-        <van-col span="4"><van-icon name="new-o" size="3.3em" color="#ef853b"/></van-col>
-        <van-col span="4"><van-icon name="flower-o" size="3.3em" color="#ed4962"/></van-col>
-        <van-col span="4"><van-icon name="refund-o" size="3.3em" color="#6d77fa"/></van-col>
+        <van-col span="4">
+          <van-icon name="coupon-o" size="3.3em" color="#f646d5"/>
+        </van-col>
+        <van-col span="4">
+          <van-icon name="gift-o" size="3.3em" color="#9c4de6"/>
+        </van-col>
+        <van-col span="4">
+          <van-icon name="new-o" size="3.3em" color="#ef853b"/>
+        </van-col>
+        <van-col span="4">
+          <van-icon name="flower-o" size="3.3em" color="#ed4962"/>
+        </van-col>
+        <van-col span="4">
+          <van-icon name="refund-o" size="3.3em" color="#6d77fa"/>
+        </van-col>
       </van-row>
       <van-row class="w-buttom" type="flex" justify="space-between">
         <van-col span="4">新人专享</van-col>
@@ -24,10 +34,35 @@
         <van-col span="4">满减大促</van-col>
       </van-row>
     </div>
-    <img class="ti1" src="../../assets/images/ti1.gif" alt="">
+    <img class="ti1" src="../../assets/images/ti1.gif" alt>
     <div class="ti2">
-
+      <div class="ti2-left">
+        <img class="ti3" src="../../assets/images/ti2.gif" alt>
+      </div>
+      <div class="ti2-right">
+        <img class="ti3" src="../../assets/images/ti3.gif" alt>
+        <img class="ti3" src="../../assets/images/ti4.gif" alt>
+      </div>
     </div>
+
+    <van-row>
+      <van-col span="8" class="toj1">
+        <span class="custom-text">友店爆料</span>
+        <van-tag color="#f2826a" plain>重磅</van-tag>
+      </van-col>
+      <van-col span="15">
+        <van-notice-bar
+          text="《星链通证经济白皮书》首发，以“见证未来”为主题的星链·供应链云暨《星链通证经济白皮书》发布会，在深圳隆重举行。"
+          background="#ffffff"
+          color="#000"
+        />
+      </van-col>
+    </van-row>
+
+    <div class="bk">
+      <h4>本周爆款</h4>
+    </div>
+
   </div>
 </template>
 
@@ -35,27 +70,49 @@
 export default {
   data() {
     return {
-      active:0,
+      active: 0
     };
   }
 };
 </script>
 
 <style scoped>
-.w{
-  padding: 5px 15px
+.w {
+  padding: 5px 15px;
 }
-.w-buttom{
-  font-size: 0.8rem
+.w-buttom {
+  font-size: 0.8rem;
 }
-.ti1{
+.ti1 {
   width: 92%;
-  padding: 0 15px
-}
-.ti2{
-  width: 92%;
-  height: 10rem;
   padding: 0 15px;
+}
+.ti2 {
+  width: 92%;
+  height: 9rem;
+  margin: 0 15px;
   border-bottom: 1px solid #cecece;
 }
+.ti2 .ti2-left {
+  width: 54%;
+  float: left;
+}
+.ti2 .ti2-right {
+  width: 45%;
+  float: right;
+}
+.ti3 {
+  width: 100%;
+}
+.toj1 {
+  margin: 8px 0px;
+  margin-left: 0.8rem;
+}
+.bk{
+  width: 92%;
+  text-align: center;
+  margin: 0 4%;
+  color: #696969
+}
+
 </style>
