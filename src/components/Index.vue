@@ -6,30 +6,50 @@
       <van-icon class="list" name="bars" size="1.6rem"/>
     </div>
 
-
     <van-tabs v-model="active" :swipe-threshold="8" :ellipsis="false">
-      <van-tab title="爆款秒杀"><Hot></Hot></van-tab>
-      <van-tab title="酒水"><Drink></Drink></van-tab>
-      <van-tab title="食品"><Food></Food></van-tab>
-      <van-tab title="美妆"><Beauty></Beauty></van-tab>
-      <van-tab title="服饰"><Costume></Costume></van-tab>
-      <van-tab title="母婴"><Mom></Mom></van-tab>
-      <van-tab title="家居"><HouseHold></HouseHold></van-tab>
-      <van-tab title="家电"><Furniture></Furniture></van-tab>
+      <van-tab title="爆款秒杀">
+        <Hot></Hot>
+      </van-tab>
+      <van-tab title="酒水">
+        <Drink></Drink>
+      </van-tab>
+      <van-tab title="食品">
+        <Food></Food>
+      </van-tab>
+      <van-tab title="美妆">
+        <Beauty></Beauty>
+      </van-tab>
+      <van-tab title="服饰">
+        <Costume></Costume>
+      </van-tab>
+      <van-tab title="母婴">
+        <Mom></Mom>
+      </van-tab>
+      <van-tab title="家居">
+        <HouseHold></HouseHold>
+      </van-tab>
+      <van-tab title="家电">
+        <Furniture></Furniture>
+      </van-tab>
     </van-tabs>
-
+    <van-tabbar v-model="active" active-color="#fa2c5c">
+      <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
+      <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" :to="{ name: 'Cart' }">购物车</van-tabbar-item>
+      <van-tabbar-item icon="manager-o" :to="{ name: 'MyOne' }">个人中心</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
 <script>
-import Drink from './tab_categories/Drink.vue'
-import Hot from './tab_categories/Hot.vue'
-import Beauty from './tab_categories/Beauty.vue'
-import Costume from './tab_categories/Costume.vue'
-import Food from './tab_categories/Food.vue'
-import Furniture from './tab_categories/Furniture.vue'
-import HouseHold from './tab_categories/HouseHold.vue'
-import Mom from './tab_categories/Mom.vue'
+import Drink from "./tab_categories/Drink.vue";
+import Hot from "./tab_categories/Hot.vue";
+import Beauty from "./tab_categories/Beauty.vue";
+import Costume from "./tab_categories/Costume.vue";
+import Food from "./tab_categories/Food.vue";
+import Furniture from "./tab_categories/Furniture.vue";
+import HouseHold from "./tab_categories/HouseHold.vue";
+import Mom from "./tab_categories/Mom.vue";
 
 export default {
   data() {
@@ -48,9 +68,9 @@ export default {
     HouseHold,
     Mom
   },
-  mounted(){
-		this.$emit("footactive",this.active)
-	}
+  mounted() {
+    this.$emit("footactive", this.active);
+  }
 };
 </script>
 

@@ -33,6 +33,12 @@
         </span>
       </van-submit-bar>
     </div>
+    <van-tabbar v-model="active" active-color="#fa2c5c">
+      <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
+      <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" :to="{ name: 'Cart' }">购物车</van-tabbar-item>
+      <van-tabbar-item icon="manager-o" :to="{ name: 'MyOne' }">个人中心</van-tabbar-item>
+    </van-tabbar>
 </div>
 </template>
 
@@ -62,10 +68,10 @@ export default {
 
 <style scoped="">
 header{display: block}
-.cart{display:flex;justify-content:space-between;}
+.cart{display:flex;justify-content:space-around;}
 .van-checkbox{display: inline;}
 .van-card{
-  padding:0.05rem 0;width: 18rem
+  padding:0.05rem 0;width: 90%
 }
 section{margin-bottom: 0.55rem;}
 .van-submit-bar{bottom: 2.7rem;}

@@ -1,34 +1,37 @@
 <template>
   <div>
-    <img class="log" src="../assets/img/myone1.jpg" alt="">
+    <img class="log" src="../assets/img/myone1.jpg" alt>
     <van-row class="user-links">
       <van-col span="6">
-        <van-icon name="pending-payment" />
-        待付款
+        <van-icon name="pending-payment"/>待付款
       </van-col>
       <van-col span="6">
-        <van-icon name="records" />
-        待发货
+        <van-icon name="records"/>待发货
       </van-col>
       <van-col span="6">
-        <van-icon name="tosend" />
-        待收货
+        <van-icon name="tosend"/>待收货
       </van-col>
       <van-col span="6">
-        <van-icon name="logistics" />
-        待评价/售后
+        <van-icon name="logistics"/>待评价/售后
       </van-col>
     </van-row>
 
     <van-cell-group class="user-group">
-      <van-cell icon="records" title="全部订单" is-link />
+      <van-cell icon="records" title="全部订单" is-link/>
     </van-cell-group>
 
     <van-cell-group>
-      <van-cell icon="points" title="我的积分" is-link />
-      <van-cell icon="gold-coin-o" title="我的优惠券" is-link />
-      <van-cell icon="gift-o" title="我收到的礼物" is-link />
+      <van-cell icon="points" title="我的积分" is-link/>
+      <van-cell icon="gold-coin-o" title="我的优惠券" is-link/>
+      <van-cell icon="gift-o" title="我收到的礼物" is-link/>
     </van-cell-group>
+
+    <van-tabbar v-model="active" active-color="#fa2c5c">
+      <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
+      <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" :to="{ name: 'Cart' }">购物车</van-tabbar-item>
+      <van-tabbar-item icon="manager-o" :to="{ name: 'MyOne' }">个人中心</van-tabbar-item>
+    </van-tabbar>
   </div>
 </template>
 
@@ -36,12 +39,12 @@
 export default {
   data() {
     return {
-      active:3
-    }
+      active: 3
+    };
   },
-  mounted(){
-		this.$emit("footactive",this.active)
-  },
+  mounted() {
+    this.$emit("footactive", this.active);
+  }
   // components: {
   //   [Row.name]: Row,
   //   [Col.name]: Col,
@@ -53,7 +56,9 @@ export default {
 </script>
 
 <style scoped>
-.log{width:27.5rem}
+.log {
+  width: 100%;
+}
 /* .user {
   &-poster {
     width: 100%;
