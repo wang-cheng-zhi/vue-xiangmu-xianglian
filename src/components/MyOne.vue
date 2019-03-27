@@ -62,6 +62,12 @@
       <van-button round type="warning" size="large">退出登录</van-button>
     </div>
 
+    <van-tabbar v-model="active" active-color="#fa2c5c">
+      <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
+      <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" :to="{ name: 'Cart' }">购物车</van-tabbar-item>
+      <van-tabbar-item icon="manager-o" :to="{ name: 'MyOne' }">个人中心</van-tabbar-item>
+    </van-tabbar>
 
   </div>
 </template>
@@ -75,9 +81,9 @@ export default {
       touxiang:require ("../assets/images/mytoux.png")
     }
   },
-  mounted(){
-		this.$emit("footactive",this.active)
-  },
+  mounted() {
+    this.$emit("footactive", this.active);
+  }
   // components: {
   //   [Row.name]: Row,
   //   [Col.name]: Col,
@@ -96,7 +102,7 @@ export default {
   position: relative;
 }
 .head p{
-  color:#fffeff;font-size:0.52rem;
+  color:#fffeff;font-size:1rem;
   padding:1.8rem 2.2rem;
 }
 .touxiang img{
@@ -112,7 +118,7 @@ export default {
   overflow:hidden;
   z-index:10;
 }
-.user-links{font-size:0.5rem;padding:0.25rem;text-align:center}
+.user-links{font-size:1rem;padding:0.25rem;text-align:center}
 .user{
   display:flex;
   padding:0 0.2rem;
@@ -125,10 +131,10 @@ export default {
   margin:0 auto;
 }
 .user .van-icon{
-  font-size:0.5rem;
+  font-size:1rem;
   color:#fc3e6a;
 }
-.user p{font-size:0.34rem}
+.user p{font-size:0.8rem}
 .xing{
   height:2.5rem;
   padding:0.2rem;
@@ -136,11 +142,12 @@ export default {
   justify-content:space-around
 }
 .xing img{display:block;width:3.2rem;}
-.van-cell-group .van-cell{font-size:0.4rem}
-.van-cell-group .van-icon{font-size:0.4rem}
+.van-cell-group .van-cell{font-size:1rem}
+.van-cell-group .van-icon{font-size:1rem}
 .van-cell{padding:0.5rem}
-.tuichu{width:7rem;margin:0 auto}
-.van-button{font-size:0.4rem;height:0.8rem;}
+.tuichu{width:7rem;margin:0 auto;height: 1.5rem;}
+.van-button{font-size:0.8rem;height:3rem;}
+
 /* .user {
   &-poster {
     width: 100%;
