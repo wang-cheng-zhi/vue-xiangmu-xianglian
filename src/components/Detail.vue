@@ -72,17 +72,17 @@ export default {
 .van-submit-bar{bottom: 1.7rem;}
 .van-goods-div-action{height: 0.5rem;width: 100%;}
 .van-goods-action{z-index: 10;}
-.detail-title{font-size: 0.44rem;color: #000000;line-height: 1.3rem;padding: 0 0.75rem 0 0.33rem;
-overflow: hidden;height: 1.3rem;}
-.detail-price{font-size: 0.44rem;color: #ff0000;padding: 0.33rem;}
-.detail-color{font-size: 0.44rem;height: 1.6rem;display: flex;color: #999999;}
+.detail-title{font-size: 0.8rem;color: #000000;line-height: 2rem;padding: 0 0.75rem 0 0.33rem;
+overflow: hidden;height: 2rem;}
+.detail-price{font-size: 0.8rem;color: #ff0000;padding: 0 0.3rem;height: 2rem;}
+.detail-color{font-size: 0.8rem;height: 2rem;display: flex;color: #999999;}
 .detail-color-size{display: block;width: 15%;padding: 0 0.3rem }
-.detail-color-fenlei{width: 85%;font-size: 0.4rem;color: deeppink;}
-.detail-tuwen{height: 1rem;font-size: 0.4rem;color: deeppink;padding: 0 0.3rem;}
+.detail-color-fenlei{width: 85%;font-size: 0.8rem;color: deeppink;}
+.detail-tuwen{height:2rem;font-size: 0.8rem;color: deeppink;padding: 0 0.3rem;}
 .detail-tuwen-firstdiv{float: left;line-height: 1rem;}
 .detail-tuwen-seconddiv{float: right;margin-top: 0.3rem;}
 .detail-firstul{width: 100%;height: 0.4rem;margin-top: 0.3rem;padding-bottom: 0.3rem;}
-.detail-firstul li{width: 25%;font-size: 0.36rem;color: #000000;float: left;line-height: 0.4rem;text-align: center;}
+.detail-firstul li{width: 25%;font-size: 0.8rem;color: #000000;float: left;line-height: 0.4rem;text-align: center;}
 .detail-firstul img{width: 0.37rem;height: 0.41rem;}
 </style>
 

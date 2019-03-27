@@ -53,7 +53,10 @@ export default {
     ToDetail(){
       this.$router.push("/Detail")
     }
-  }
+  },
+  mounted(){
+		this.$emit("footactive",this.active)
+	}
 };
 </script>
 
@@ -62,8 +65,8 @@ header{display: block}
 .cart{display:flex;justify-content:space-between;}
 .van-checkbox{display: inline;}
 .van-card{
-  padding:0.05rem 0;width: 10rem
+  padding:0.05rem 0;width: 18rem
 }
 section{margin-bottom: 0.55rem;}
-.van-submit-bar{bottom: 1.7rem;}
+.van-submit-bar{bottom: 2.7rem;}
 </style>

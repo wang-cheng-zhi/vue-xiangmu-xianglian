@@ -7,6 +7,9 @@ import Cart from '@/components/Cart'
 import Shop from "@/components/Shop"
 import Detail from  '@/components/Detail'
 import TuwenDetail from "@/components/TuwenDetail"
+import Login from '@/components/Login'
+
+
 
 Vue.use(Router)
 
@@ -16,22 +19,30 @@ export default new Router({
       path: '/',
       name: 'Index',
       component: Index
-    },{
+    }, {
       path: '/cart',
       name: 'Cart',
       component: Cart
-    },{
+    }, {
       path: '/myone',
       name: 'MyOne',
       component: MyOne
-    },{
+    }, {
       path: '/search',
       name: 'Search',
       component: Search
     },{
-      path:"/shop",
-      name:"Shop",
-      component:Shop
+      path: "/shop",
+      name: "Shop",
+      component: Shop
+    }, {
+      path: "/detail",
+      name: 'Detail',
+      component: Detail
+    },{
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path:"/detail",

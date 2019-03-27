@@ -47,7 +47,10 @@ export default {
     Furniture,
     HouseHold,
     Mom
-  }
+  },
+  mounted(){
+		this.$emit("footactive",this.active)
+	}
 };
 </script>
 
