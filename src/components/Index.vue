@@ -18,7 +18,6 @@
       <van-tab title="家电"><Furniture></Furniture></van-tab>
     </van-tabs>
 
-
   </div>
 </template>
 
@@ -48,7 +47,10 @@ export default {
     Furniture,
     HouseHold,
     Mom
-  }
+  },
+  mounted(){
+		this.$emit("footactive",this.active)
+	}
 };
 </script>
 
