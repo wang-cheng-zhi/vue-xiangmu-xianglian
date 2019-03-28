@@ -62,10 +62,16 @@ export default {
       })
         .then(res => {
           if (res.code == "success") {
-            this.$toast('登录成功');
+            // this.$toast('登录成功');
+            this.$toast.loading({
+              mask:true,
+              message:'正在跳转...'
+            })
           }
           sessionStorage.setItem("token", res.data.token);
-
+          this.$router.push({
+            name:'Index'
+          })
         })
         .catch(err => {
           this.$toast(res.data.message);
