@@ -24,16 +24,22 @@
       />
 
       <van-field v-model="password" type="password" label="密码" placeholder="请输入密码" required/>
+      <div class="tishi">
+        <span>*</span>
+        <span>可使用星链生活账号密码登录</span>
+      </div>
     </van-cell-group>
 
-    <button @click="login">登录</button>
-
+    <van-button type="info" round size="large" @click="login">登录</van-button>
+    <van-row>
+      <van-col span="6" offset="1">忘记密码</van-col>
+      <van-col span="8" offset="8">短信验证码登录</van-col>
+    </van-row>
   </div>
 </template>
 
 <script>
-
-import { post } from 'axios'
+import { post } from "axios";
 
 export default {
   data() {
@@ -46,27 +52,33 @@ export default {
     onClickLeft() {
       history.go(-1);
     },
-    onClickRight() {},
+    onClickRight() {
+      this.$router.push("/reg");
+    },
     login() {
-      post("http://10.8.164.6:8000/app/login", {
-        username: this.username,
+      post("http://api.cat-shop.penkuoer.com/api/v1/auth/login", {
+        userName: this.username,
         password: this.password
       })
         .then(res => {
-          console.log(res);
+          if (res.code == "success") {
+            this.$toast('登录成功');
+          }
+          sessionStorage.setItem("token", res.data.token);
+
         })
         .catch(err => {
+          this.$toast(res.data.message);
           console.log(err);
         });
     }
-
   }
 };
 </script>
 
 <style scoped>
 .loginbg {
-  height: 18rem;
+  height: 17rem;
   text-align: center;
 }
 .loginbg img {
@@ -75,5 +87,19 @@ export default {
 .loginbg {
   font-weight: 500;
   font-size: 1.4rem;
+}
+.tishi {
+  color: #696969;
+  font-size: 0.8rem;
+  margin: 2% 6%;
+}
+.van-field {
+  width: 90%;
+  margin: 0% 5%;
+}
+.van-button {
+  margin-top: 2%;
+  width: 90%;
+  margin: 3% 5%;
 }
 </style>
