@@ -35,42 +35,17 @@
 
       <div class="Index-list">
         <ul class="Index-ul">
-            <li class="Index-li">
-              <img src="../images/dongwu1.jpg" class="Index-img"/>
-              <h2 class="Index-name">型峡谷你觉得你的</h2>
-              <p class="Index-desc">可免费我让你服务框架归为你</p>
+            <li class="Index-li" v-for="product in products" :key="product._id">
+              <img :src="serverUrl+product.coverImg" class="Index-img"/>
+              <h2 class="Index-name">{{product.name}}</h2>
+              <p class="Index-desc">{{product.descriptions}}</p>
               <div class="Index-price">
-                <div class="Index-xinprice">￥50元</div>
+                <div class="Index-xinprice">{{product.price}}</div>
                 <div class="Index-jiuprice">￥50元</div>
               </div>
             </li>
-            <li class="Index-li">
-              <img src="../images/dongwu1.jpg" class="Index-img"/>
-              <h2 class="Index-name">型峡谷你觉得你的</h2>
-              <p class="Index-desc">可免费我让你服务框架归为你</p>
-              <div class="Index-price">
-                <div class="Index-xinprice">￥50元</div>
-                <div class="Index-jiuprice">￥50元</div>
-              </div>
-            </li>
-            <li class="Index-li">
-              <img src="../images/dongwu1.jpg" class="Index-img"/>
-              <h2 class="Index-name">型峡谷你觉得你的</h2>
-              <p class="Index-desc">可免费我让你服务框架归为你</p>
-              <div class="Index-price">
-                <div class="Index-xinprice">￥50元</div>
-                <div class="Index-jiuprice">￥50元</div>
-              </div>
-            </li>
-            <li class="Index-li">
-              <img src="../images/dongwu1.jpg" class="Index-img"/>
-              <h2 class="Index-name">型峡谷你觉得你的</h2>
-              <p class="Index-desc">可免费我让你服务框架归为你</p>
-              <div class="Index-price">
-                <div class="Index-xinprice">￥50元</div>
-                <div class="Index-jiuprice">￥50元</div>
-              </div>
-            </li>
+
+
         </ul>
       </div>
     </section>
@@ -159,7 +134,7 @@ section{flex: 1;overflow: auto;margin-bottom: 5rem;}
 .Index-li{width: 6rem;padding: 0.5rem;}
 .Index-img{width: 6rem;height: 6rem;}
 .Index-name{line-height: 1.2rem;font-size: 0.7rem;color: deeppink;overflow: hidden;}
-.Index-desc{line-height: 1.2rem;font-size: 0.7rem;color: #ffffff;overflow: hidden;}
+.Index-desc{line-height: 1.2rem;font-size: 0.7rem;color: #ffffff;overflow: hidden;white-space: nowrap;}
 .Index-price{line-height: 1.2rem;font-size: 0.7rem;float: left;}
 .Index-xinprice{line-height: 1.2rem;font-size: 0.7rem;color:#000000;float: left;}
 .Index-jiuprice{line-height: 1.2rem;font-size: 0.7rem;float: right;color: #cecece;text-decoration: line-through;}
