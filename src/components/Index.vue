@@ -32,6 +32,18 @@
         <Furniture></Furniture>
       </van-tab>
     </van-tabs>
+
+    <van-card
+      v-for="product in products"
+      :num="product.quantity"
+      :price="product.price"
+      :desc="product.descriptions"
+      :title="product.name"
+      :thumb="serverUrl+product.coverImg"
+      :key="product._id"
+      :thumb-link="`#/list/${product._id}`"
+    />
+
     <van-tabbar v-model="active" active-color="#fa2c5c">
       <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
       <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
@@ -50,12 +62,20 @@ import Food from "./tab_categories/Food.vue";
 import Furniture from "./tab_categories/Furniture.vue";
 import HouseHold from "./tab_categories/HouseHold.vue";
 import Mom from "./tab_categories/Mom.vue";
+import { getProducts } from "../services/products";
+import { addToShopCart } from '../services/users'
+import { serverUrl } from '../utils/config'
+
 
 export default {
   data() {
     return {
       active: 0,
-      value: ""
+      value: "",
+      products:[],
+      page:1,
+      pageCount:1,
+      serverUrl
     };
   },
   components: {
@@ -70,6 +90,13 @@ export default {
   },
   mounted() {
     this.$emit("footactive", this.active);
+    getProducts({ page: this.page })
+    .then(res=>{
+      this.products = this.products.concat(res.data.products)
+      this.pageCount = res.data.pages
+    }).catch(err => {
+      console.log(err)
+    })
   }
 };
 </script>

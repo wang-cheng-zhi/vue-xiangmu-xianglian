@@ -28,7 +28,7 @@
       </router-link>
     </ul>
     <van-cell-group class="user-group">
-      <van-cell icon="records" title="全部订单" is-link />
+      <van-cell :to="{ name:'Order' }" icon="records" title="全部订单" is-link />
     </van-cell-group>
     <van-row class="user-links">
       <van-col span="6">
