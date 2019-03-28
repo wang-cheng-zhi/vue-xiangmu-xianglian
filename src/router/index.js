@@ -9,6 +9,9 @@ import Detail from  '@/components/Detail'
 import TuwenDetail from "@/components/TuwenDetail"
 import Login from '@/components/Login'
 import Pingjia from '@/components/Pingjia'
+import Coupon from '@/components/Coupon'
+import MyAddress from '@/components/MyAddress'
+import AddMyAddress from '@/components/AddMyAddress'
 
 
 Vue.use(Router)
@@ -23,11 +26,28 @@ export default new Router({
       path: '/cart',
       name: 'Cart',
       component: Cart
-    }, {
+    },
+    {
       path: '/myone',
       name: 'MyOne',
-      component: MyOne
-    }, {
+      component: MyOne,
+    },
+    {
+      path: '/myaddress',
+      name: 'MyAddress',
+      component: MyAddress,
+    },
+    {
+      path: '/addmyaddress',
+      name: 'AddMyAddress',
+      component: AddMyAddress,
+    },
+    {
+      path: '/coupon',
+      name: 'Coupon',
+      component: Coupon,
+    },
+    {
       path: '/search',
       name: 'Search',
       component: Search
