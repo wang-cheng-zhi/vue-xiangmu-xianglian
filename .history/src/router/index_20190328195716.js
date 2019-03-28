@@ -6,7 +6,9 @@ import Search from '@/components/Search'
 import Cart from '@/components/Cart'
 import Shop from "@/components/Shop"
 import Detail from  '@/components/Detail'
+import TuwenDetail from "@/components/TuwenDetail"
 import Login from '@/components/Login'
+import Pingjia from '@/components/Pingjia'
 import Coupon from '@/components/Coupon'
 import MyAddress from '@/components/MyAddress'
 import AddMyAddress from '@/components/AddMyAddress'
@@ -62,6 +64,19 @@ export default new Router({
       path:"/detail",
       name:'Detail',
       component:Detail,
+      redirect:"/tuwenedetail",
+      children:[
+        {
+          path:"/tuwendetail",
+          name:"TuwenDetail",
+          component:TuwenDetail,
+        },
+        {
+          path:"/pingjia",
+          name:"Pingjia",
+          component:Pingjia,
+        }
+      ]
     }
   ]
 })

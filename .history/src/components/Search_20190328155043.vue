@@ -33,7 +33,7 @@
               <van-icon name="thumb-circle-o" />点赞{{countdianzhan}}
             </van-button>
             <van-button size="small" type="danger" round>
-              <van-icon name="expand-o"/>分享{{countfenxiang}}
+              <van-icon name="expand-o"  />分享{{countfenxiang}}
               </van-button>
           </div>
         </van-panel>
@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped="">
-section{flex: 1;overflow:auto;margin-bottom: 5rem;}
+section{flex: 1;}
 .search-sec{padding:0 0.5rem 0 0.5rem;}
 .van-swipe{width: 100%;margin-bottom: 0.5rem;}
 .van-swipe-img{width: 100%;}
