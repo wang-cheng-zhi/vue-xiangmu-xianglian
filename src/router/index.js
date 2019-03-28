@@ -11,6 +11,10 @@ import Login from '@/components/Login'
 import Pingjia from '@/components/Pingjia'
 import Reg from '@/components/Reg'
 import { isLogined } from '@/utils/auth'
+import Coupon from '@/components/Coupon'
+import MyAddress from '@/components/MyAddress'
+import AddMyAddress from '@/components/AddMyAddress'
+
 
 
 Vue.use(Router)
@@ -24,17 +28,29 @@ const router = new Router({
     }, {
       path: '/cart',
       name: 'Cart',
-      component: Cart, meta: {
-        needLogin: true,
-      }
-    }, {
+      component: Cart
+    },
+    {
       path: '/myone',
       name: 'MyOne',
       component: MyOne,
-      meta: {
-        needLogin: true,
-      }
-    }, {
+    },
+    {
+      path: '/myaddress',
+      name: 'MyAddress',
+      component: MyAddress,
+    },
+    {
+      path: '/addmyaddress',
+      name: 'AddMyAddress',
+      component: AddMyAddress,
+    },
+    {
+      path: '/coupon',
+      name: 'Coupon',
+      component: Coupon,
+    },
+    {
       path: '/search',
       name: 'Search',
       component: Search

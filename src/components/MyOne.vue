@@ -55,11 +55,11 @@
 
     <van-cell-group>
       <van-cell icon="points" title="我的积分" is-link />
-      <van-cell icon="gold-coin-o" title="我的优惠券" is-link />
-      <van-cell icon="gift-o" title="我的收货地址" is-link />
+      <van-cell icon="gold-coin-o" title="我的优惠券" is-link  @click="ToCoupon()"/>
+      <van-cell icon="gift-o" title="我的收货地址" is-link  @click="ToMyAddress()"/>
     </van-cell-group>
     <div class="tuichu">
-      <van-button round type="warning" size="large">退出登录</van-button>
+      <van-button round type="warning" size="large" @click="ToLogin()">退出登录</van-button>
     </div>
 
     <van-tabbar v-model="active" active-color="#fa2c5c">
@@ -82,7 +82,18 @@ export default {
   },
   mounted() {
     this.$emit("footactive", this.active);
-  }
+  },
+  methods: {
+    ToLogin(){
+      this.$router.push("/login")
+    },
+    ToCoupon(){
+      this.$router.push("/coupon")
+    },
+    ToMyAddress(){
+      this.$router.push("/myaddress")
+    }
+  },
   // components: {
   //   [Row.name]: Row,
   //   [Col.name]: Col,
@@ -94,40 +105,40 @@ export default {
 </script>
 
 <style scoped>
-.myone{margin-bottom:4rem}
+.myone{margin-bottom:8rem}
 .head{
-  height:4.09rem;background:url(../assets/images/myone1.jpg) no-repeat;
+  height:10rem;background:url(../assets/images/myone1.jpg) no-repeat;
   background-size:cover;
   position: relative;
 }
 .head p{
   color:#fffeff;font-size:1rem;
-  padding:1.8rem 2.2rem;
+  padding:4rem 6rem;
 }
 .touxiang img{
-  display:block;width:2.46rem;height:2.46rem;
+  display:block;width:6rem;height:6rem;
 }
 .touxiang{
   position: absolute;
   right:0.6rem;
-  bottom:-1.6rem;
-  width:2.46rem;height:2.46rem;
+  bottom:-3.6rem;
+  width:6rem;height:6rem;
   border:0.05rem solid #fff;
   border-radius:50%;
   overflow:hidden;
   z-index:10;
 }
-.user-links{font-size:1rem;padding:0.25rem;text-align:center}
+.user-links{font-size:1rem;padding:0.5rem;text-align:center}
 .user{
   display:flex;
-  padding:0 0.2rem;
+  padding:0 1rem;
   width:7rem;
-  margin-top:-0.25rem;
-  margin-bottom:0.7rem
+  margin-top:-0.2rem;
 }
 .user li{
   text-align:center;
   margin:0 auto;
+  padding: 1.5rem 0rem
 }
 .user .van-icon{
   font-size:1rem;
@@ -135,12 +146,12 @@ export default {
 }
 .user p{font-size:0.8rem}
 .xing{
-  height:2.5rem;
-  padding:0.2rem;
+  height:4rem;
+  padding:0.5rem;
   display:flex;
   justify-content:space-around
 }
-.xing img{display:block;width:3.2rem;}
+.xing img{display:block;width:6.5rem;}
 .van-cell-group .van-cell{font-size:1rem}
 .van-cell-group .van-icon{font-size:1rem}
 .van-cell{padding:0.5rem}
