@@ -70,7 +70,19 @@ const router = new Router({
     {
       path: "/detail",
       name: 'Detail',
-      component: Detail
+      component: Detail,
+      children: [
+        {
+          path: "/tuwendetail",
+          name: "TuwenDetail",
+          component: TuwenDetail,
+        },
+        {
+          path: "/pingjia",
+          name: "Pingjia",
+          component: Pingjia,
+        }
+      ]
     }
   ]
 })

@@ -140,8 +140,8 @@ export default {
   font-size: 0.8rem;
 }
 section{flex: 1;overflow: auto;margin-bottom: 5rem;}
-.Index-ul{display: flex;flex-wrap: wrap;padding: 0.5rem;background: #f4e9e9;}
-.Index-li{width: 6rem;padding: 0.5rem;}
+.Index-ul{display: flex;flex-wrap: wrap;padding: 0.3rem;background: #f4e9e9;}
+.Index-li{width: 6rem;padding: 0.2rem;}
 .Index-img{width: 6rem;height: 6rem;}
 .Index-name{line-height: 1.2rem;font-size: 0.7rem;color: deeppink;overflow: hidden;}
 .Index-desc{line-height: 1.2rem;font-size: 0.7rem;color: #ffffff;overflow: hidden;}

@@ -70,7 +70,7 @@ const router = new Router({
     {
       path: "/detail",
       name: 'Detail',
-      component: Detail
+      component: Detail,
     }
   ]
 })

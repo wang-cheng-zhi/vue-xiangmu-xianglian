@@ -77,7 +77,7 @@ export default {
 </script>
 
 <style scoped="">
-section{flex: 1;overflow:auto;margin-bottom: 5rem;}
+section{flex: 1;overflow:auto;}
 .search-sec{padding:0 0.5rem 0 0.5rem;}
 .van-swipe{width: 100%;margin-bottom: 0.5rem;}
 .van-swipe-img{width: 100%;}

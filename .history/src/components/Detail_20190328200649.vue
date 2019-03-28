@@ -24,8 +24,8 @@
       </ul>
       <div class="detail-zhan">
         <div class="detail-zhanshi">
-          <div @click="ToTuwenDetail()" :class="classA">图文详情</div>
-          <div @click="ToPingjia()" :class="classB">评价</div>
+          <router-link  tag="div" @click="ToTuwenDetail()">图文详情</router-link>
+          <router-link @click="ToPingjia()" tag="div">评价</router-link>
         </div>
         <div v-show="tuwen" class="TuwenDetail">
           <img src="../images/Tuwen-Detail-1.jpg"/>
@@ -63,9 +63,7 @@ export default {
   data() {
     return {
         tuwen:true,
-        pingjia:false,
-        classA:"hover",
-        classB:""
+        pingjia:false
     }
   },
   methods: {
@@ -81,14 +79,10 @@ export default {
     ToTuwenDetail(){
       this.tuwen = true
       this.pingjia = false
-      this.classA = "hover"
-      this.classB = ""
     },
     ToPingjia(){
       this.tuwen = false
       this.pingjia = true
-      this.classA = ""
-      this.classB = "hover"
     }
   },
 }
@@ -113,9 +107,9 @@ overflow: hidden;height: 2rem;}
 .detail-firstul img{width: 0.37rem;height: 0.41rem;}
 
 .detail-zhan{background: #ffffff;}
-.detail-zhanshi{background: #ffffff;margin-top: 0.5rem;font-size: 0.8rem;height: 1.8rem;line-height: 1.8rem;}
+.detail-zhanshi{background: #ffffff;margin-top: 0.3rem;font-size: 0.8rem;height: 1.4rem;line-height: 1.4rem;}
 .detail-zhanshi  div{width: 50%;color: #000000;float: left;line-height: 1.4rem;text-align: center;margin-bottom: 0.5rem;}
-.detail-zhanshi  .hover{color: #7fa37d;border-bottom: 0.09rem solid #7fa37d;}
+.detail-zhanshi  div:hover{color: #7fa37d;border-bottom: 0.09rem solid #7fa37d;}
 .TuwenDetail img {width: 100%;}
 </style>
 

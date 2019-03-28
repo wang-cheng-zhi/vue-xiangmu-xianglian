@@ -24,18 +24,10 @@
       </ul>
       <div class="detail-zhan">
         <div class="detail-zhanshi">
-          <div @click="ToTuwenDetail()" :class="classA">图文详情</div>
-          <div @click="ToPingjia()" :class="classB">评价</div>
+          <router-link :to="{ name: 'TuwenDetail' }" tag="div">图文详情</router-link>
+          <router-link :to="{ name: 'Pingjia' }" tag="div">评价</router-link>
         </div>
-        <div v-show="tuwen" class="TuwenDetail">
-          <img src="../images/Tuwen-Detail-1.jpg"/>
-          <img src="../images/Tuwen-Detail-2.jpg"/>
-          <img src="../images/Tuwen_Detail-3.jpg"/>
-        </div>
-
-        <div v-show="pingjia">
-
-        </div>
+        <router-view></router-view>
       </div>
 
 
@@ -62,10 +54,7 @@ export default {
   name:"Detail",
   data() {
     return {
-        tuwen:true,
-        pingjia:false,
-        classA:"hover",
-        classB:""
+
     }
   },
   methods: {
@@ -78,18 +67,6 @@ export default {
     ToIndex(){
       this.$router.push("/")
     },
-    ToTuwenDetail(){
-      this.tuwen = true
-      this.pingjia = false
-      this.classA = "hover"
-      this.classB = ""
-    },
-    ToPingjia(){
-      this.tuwen = false
-      this.pingjia = true
-      this.classA = ""
-      this.classB = "hover"
-    }
   },
 }
 </script>
@@ -113,9 +90,8 @@ overflow: hidden;height: 2rem;}
 .detail-firstul img{width: 0.37rem;height: 0.41rem;}
 
 .detail-zhan{background: #ffffff;}
-.detail-zhanshi{background: #ffffff;margin-top: 0.5rem;font-size: 0.8rem;height: 1.8rem;line-height: 1.8rem;}
+.detail-zhanshi{background: #ffffff;margin-top: 0.3rem;font-size: 0.8rem;height: 1.4rem;line-height: 1.4rem;}
 .detail-zhanshi  div{width: 50%;color: #000000;float: left;line-height: 1.4rem;text-align: center;margin-bottom: 0.5rem;}
-.detail-zhanshi  .hover{color: #7fa37d;border-bottom: 0.09rem solid #7fa37d;}
-.TuwenDetail img {width: 100%;}
+.detail-zhanshi  div:hover{color: #7fa37d;border-bottom: 0.09rem solid #7fa37d;}
 </style>
 

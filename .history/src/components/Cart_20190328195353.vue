@@ -80,7 +80,7 @@ header{display: block}
 .van-card{
   padding:0.05rem 0;width: 90%
 }
-section{margin-bottom: 5rem;flex: 1;overflow: auto;}
+section{margin-bottom: 5rem;}
 .van-submit-bar{bottom: 2.7rem;}
 .cart-input{width: 0.8rem;text-align: center;}
 </style>

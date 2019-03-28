@@ -6,11 +6,11 @@ import Search from '@/components/Search'
 import Cart from '@/components/Cart'
 import Shop from "@/components/Shop"
 import Detail from '@/components/Detail'
-import TuwenDetail from "@/components/TuwenDetail"
 import Login from '@/components/Login'
-import Pingjia from '@/components/Pingjia'
 import Reg from '@/components/Reg'
 import { isLogined } from '@/utils/auth'
+import Detail from  '@/components/Detail'
+import Login from '@/components/Login'
 import Coupon from '@/components/Coupon'
 import MyAddress from '@/components/MyAddress'
 import AddMyAddress from '@/components/AddMyAddress'
@@ -70,7 +70,7 @@ const router = new Router({
     {
       path: "/detail",
       name: 'Detail',
-      component: Detail
+      component: Detail,
     }
   ]
 })

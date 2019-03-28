@@ -38,7 +38,6 @@
 import { post } from "axios";
 
 export default {
-  name:"Reg",
   data() {
     return {
       username: "",
