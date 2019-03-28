@@ -92,20 +92,12 @@ import Food from "./tab_categories/Food.vue";
 import Furniture from "./tab_categories/Furniture.vue";
 import HouseHold from "./tab_categories/HouseHold.vue";
 import Mom from "./tab_categories/Mom.vue";
-import { getProducts } from "../services/products";
-import { addToShopCart } from '../services/users'
-import { serverUrl } from '../utils/config'
-
 
 export default {
   data() {
     return {
       active: 0,
-      value: "",
-      products:[],
-      page:1,
-      pageCount:1,
-      serverUrl
+      value: ""
     };
   },
   components: {
@@ -120,13 +112,6 @@ export default {
   },
   mounted() {
     this.$emit("footactive", this.active);
-    getProducts({ page: this.page })
-    .then(res=>{
-      this.products = this.products.concat(res.data.products)
-      this.pageCount = res.data.pages
-    }).catch(err => {
-      console.log(err)
-    })
   }
 };
 </script>

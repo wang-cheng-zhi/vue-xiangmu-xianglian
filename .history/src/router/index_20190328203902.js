@@ -6,15 +6,14 @@ import Search from '@/components/Search'
 import Cart from '@/components/Cart'
 import Shop from "@/components/Shop"
 import Detail from '@/components/Detail'
-import TuwenDetail from "@/components/TuwenDetail"
 import Login from '@/components/Login'
-import Pingjia from '@/components/Pingjia'
+
 import Reg from '@/components/Reg'
 import { isLogined } from '@/utils/auth'
+import Login from '@/components/Login'
 import Coupon from '@/components/Coupon'
 import MyAddress from '@/components/MyAddress'
 import AddMyAddress from '@/components/AddMyAddress'
-import Order from '@/components/Order'
 
 
 
@@ -50,10 +49,6 @@ const router = new Router({
       path: '/coupon',
       name: 'Coupon',
       component: Coupon,
-    },{
-      path: '/order',
-      name: 'Order',
-      component: Order,
     },
     {
       path: '/search',
@@ -67,15 +62,15 @@ const router = new Router({
       path: '/login',
       name: 'Login',
       component: Login
-    }, {
-      path: '/reg',
-      name: 'Reg',
-      component: Reg
+    // }, {
+    //   path: '/reg',
+    //   name: 'Reg',
+    //   component: Reg
     },
     {
       path: "/detail",
       name: 'Detail',
-      component: Detail
+      component: Detail,
     }
   ]
 })

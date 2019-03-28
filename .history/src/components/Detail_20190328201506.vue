@@ -81,14 +81,10 @@ export default {
     ToTuwenDetail(){
       this.tuwen = true
       this.pingjia = false
-      this.classA = "hover"
-      this.classB = ""
     },
     ToPingjia(){
       this.tuwen = false
       this.pingjia = true
-      this.classA = ""
-      this.classB = "hover"
     }
   },
 }

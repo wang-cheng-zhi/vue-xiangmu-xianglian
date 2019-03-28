@@ -14,7 +14,6 @@ import { isLogined } from '@/utils/auth'
 import Coupon from '@/components/Coupon'
 import MyAddress from '@/components/MyAddress'
 import AddMyAddress from '@/components/AddMyAddress'
-import Order from '@/components/Order'
 
 
 
@@ -50,10 +49,6 @@ const router = new Router({
       path: '/coupon',
       name: 'Coupon',
       component: Coupon,
-    },{
-      path: '/order',
-      name: 'Order',
-      component: Order,
     },
     {
       path: '/search',
@@ -75,7 +70,19 @@ const router = new Router({
     {
       path: "/detail",
       name: 'Detail',
-      component: Detail
+      component: Detail,
+      children: [
+        {
+          path: "/tuwendetail",
+          name: "TuwenDetail",
+          component: TuwenDetail,
+        },
+        {
+          path: "/pingjia",
+          name: "Pingjia",
+          component: Pingjia,
+        }
+      ]
     }
   ]
 })
