@@ -110,7 +110,7 @@ overflow: hidden;height: 2rem;}
 .detail-color-fenlei{width: 85%;font-size: 0.8rem;color: deeppink;}
 .detail-firstul{width: 100%;height: 0.4rem;margin-top: 0.3rem;padding-bottom: 0.3rem;}
 .detail-firstul li{width: 25%;font-size: 0.8rem;color: #000000;float: left;line-height: 0.4rem;text-align: center;}
-.detail-firstul img{width: 0.37rem;height: 0.41rem;}
+.detail-firstul img{width: 0.67rem;height: 0.71rem;}
 
 .detail-zhan{background: #ffffff;}
 .detail-zhanshi{background: #ffffff;margin-top: 0.5rem;font-size: 0.8rem;height: 1.8rem;line-height: 1.8rem;}
