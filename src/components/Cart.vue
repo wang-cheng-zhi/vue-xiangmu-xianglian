@@ -9,14 +9,17 @@
       <div class="cart" @click="ToDetail()">
         <van-checkbox v-model="checked"></van-checkbox>
         <van-card
-          num="2"
+          num="4"
           tag="标签"
           price="2.00"
-          desc="描述信息"
-          title="商品标题"
+          desc="商品可以的购买"
+          title="新鲜粗人的四个"
           :thumb="imageURL"
           origin-price="10.00"
         >
+        <button slot="num">+</button>
+        <input type="text" slot="num" value="0" class="cart-input"/>
+        <button slot="num">-</button>
           <div slot="footer">
             <van-button size="mini">结算</van-button>
             <van-button size="mini">删除</van-button>
@@ -58,7 +61,11 @@ export default {
     },
     ToDetail(){
       this.$router.push("/Detail")
-    }
+    },
+    getactive(msg){
+      this.active = msg;
+      console.log(msg)
+		}
   },
   mounted(){
 		this.$emit("footactive",this.active)
@@ -75,4 +82,5 @@ header{display: block}
 }
 section{margin-bottom: 0.55rem;}
 .van-submit-bar{bottom: 2.7rem;}
+.cart-input{width: 0.8rem;text-align: center;}
 </style>

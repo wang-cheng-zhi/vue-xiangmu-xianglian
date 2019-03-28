@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <van-nav-bar title="商城" left-text="返回" left-arrow>
+      <van-nav-bar title="商城" left-text="返回" left-arrow  @click-left="ToIndex()">
         <van-icon name="search" slot="right" />
       </van-nav-bar>
     </header>
@@ -21,6 +21,15 @@
        </van-tree-select>
       </div>
     </section>
+    <footer>
+      <router-view @footactive="getactive" />
+      <van-tabbar v-model="active" active-color="#fa2c5c">
+        <van-tabbar-item icon="wap-home" :to="{ name: 'Index' }">首页</van-tabbar-item>
+        <van-tabbar-item icon="search" :to="{ name: 'Search' }">发现</van-tabbar-item>
+        <van-tabbar-item icon="shopping-cart-o" :to="{ name: 'Cart' }">购物车</van-tabbar-item>
+        <van-tabbar-item icon="manager-o" :to="{ name: 'MyOne' }">个人中心</van-tabbar-item>
+      </van-tabbar>
+    </footer>
   </div>
 </template>
 
@@ -30,6 +39,7 @@ export default {
   name:"Shop",
   data() {
     return {
+      active:2,
       mainActiveIndex: 0,
       // 被选中元素的id
       activeId: 1,
@@ -68,7 +78,14 @@ export default {
     },
     onItemClick(data) {
       this.activeId = data.id;
-    }
+    },
+    ToIndex(){
+      history.go(-1)
+    },
+    getactive(msg){
+      this.active = msg;
+      console.log(msg)
+		}
   }
 
 }

@@ -1,10 +1,5 @@
 <template>
-  <div>
-   <header>
-      <van-nav-bar title="图文详情" left-text="返回" @click-left="ToDetail()" left-arrow @click-right="ToShop()">
-        <van-icon name="search" slot="right" />
-      </van-nav-bar>
-    </header>
+  <div class="TuwenDetail">
     <section>
       <div>
         <img src="../images/Tuwen-Detail-1.jpg"/>
@@ -33,3 +28,7 @@ export default {
   }
 }
 </script>
+
+<style scoped="">
+.TuwenDetail img {width: 100%;}
+</style>

@@ -8,7 +8,7 @@ import Shop from "@/components/Shop"
 import Detail from  '@/components/Detail'
 import TuwenDetail from "@/components/TuwenDetail"
 import Login from '@/components/Login'
-
+import Pingjia from '@/components/Pingjia'
 
 
 Vue.use(Router)
@@ -46,9 +46,14 @@ export default new Router({
       component:Detail,
       children:[
         {
-          path:"/detail/tuwendetail",
+          path:"/tuwendetail",
           name:"TuwenDetail",
           component:TuwenDetail,
+        },
+        {
+          path:"/pingjia",
+          name:"Pingjia",
+          component:Pingjia,
         }
       ]
     }

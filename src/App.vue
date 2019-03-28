@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <router-view @footactive="getactive" />
-
   </div>
 </template>
 
@@ -19,7 +18,6 @@ export default {
   methods:{
 		getactive(msg){
       this.active = msg;
-      console.log(msg)
 		}
   }
 }
