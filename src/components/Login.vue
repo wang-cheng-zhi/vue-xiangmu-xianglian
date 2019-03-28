@@ -25,10 +25,12 @@
 
       <van-field v-model="password" type="password" label="密码" placeholder="请输入密码" required/>
     </van-cell-group>
+    <button @click="login">登录</button>
   </div>
 </template>
 
 <script>
+import { post } from 'axios'
 export default {
   data() {
     return {
@@ -40,7 +42,19 @@ export default {
     onClickLeft() {
       history.go(-1);
     },
-    onClickRight() {}
+    onClickRight() {},
+    login() {
+      post("http://10.8.164.6:8000/app/login", {
+        username: this.username,
+        password: this.password
+      })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 };
 </script>
