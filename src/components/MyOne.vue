@@ -17,13 +17,13 @@
       </router-link>
     </ul>
     <ul class="xing">
-      <router-link to="xzsc">
+      <router-link to="/xzsc">
         <img src="../assets/images/myone4.jpg" alt="星钻商城">
       </router-link>
-      <router-link to="wkzq">
+      <router-link to="/wkzq">
         <img src="../assets/images/myone3.jpg" alt="挖矿专区">
       </router-link>
-      <router-link to="xlzh">
+      <router-link to="/xlzh">
         <img src="../assets/images/myone2.jpg" alt="星链账户">
       </router-link>
     </ul>
@@ -72,12 +72,23 @@
 </template>
 
 <script>
+
+import {getUserInfo} from "../services/users"
+
 export default {
   data() {
     return {
       active:3,
       nickName:"",
       touxiang:require ("../assets/images/mytoux.png")
+    }
+  },
+  async created(){
+    if(sessionStorage.getItem("token")){
+      const data = await getUserInfo();
+      this.nickName = data.data.userName
+    }else{
+      this.$router.push("/login")
     }
   },
   mounted() {
@@ -95,13 +106,6 @@ export default {
       this.$router.push("/myaddress")
     }
   },
-  // components: {
-  //   [Row.name]: Row,
-  //   [Col.name]: Col,
-  //   [Icon.name]: Icon,
-  //   [Cell.name]: Cell,
-  //   [CellGroup.name]: CellGroup
-  // }
 };
 </script>
 
@@ -114,7 +118,7 @@ export default {
 }
 .head p{
   color:#fffeff;font-size:1rem;
-  padding:4rem 6rem;
+  padding:4.3rem 6rem;
 }
 .touxiang img{
   display:block;width:6rem;height:6rem;
@@ -159,23 +163,5 @@ export default {
 .tuichu{width:7rem;margin:0 auto;height: 1.5rem;}
 .van-button{font-size:0.8rem;height:3rem;}
 
-/* .user {
-  &-poster {
-    width: 100%;
-    display: block;
-  }
-  &-group {
-    margin-bottom: 15px;
-  }
-  &-links {
-    padding: 15px 0;
-    font-size: 12px;
-    text-align: center;
-    background-color: #fff;
-    .van-icon {
-      display: block;
-      font-size: 24px;
-    }
-  }
-}*/
+
 </style>

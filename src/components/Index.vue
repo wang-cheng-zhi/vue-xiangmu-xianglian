@@ -1,10 +1,10 @@
 <template>
   <div id="out">
-    <div class="search">
+    <header class="search">
       <van-icon class="info" name="chat" size="1.6rem"/>
       <van-search class="search1" placeholder="搜索商品" v-model="value" shape="round"/>
       <van-icon class="list" name="bars" size="1.6rem"/>
-    </div>
+    </header>
     <section>
       <van-tabs v-model="active" :swipe-threshold="8" :ellipsis="false">
         <van-tab title="爆款秒杀">
@@ -37,7 +37,7 @@
         <ul class="Index-ul">
              <router-link
              v-for="item in products" :key="item._id" class="Index-li"
-             :to="`/${item._id}`" tag="li"
+             :to="`/detail/${item._id}`" tag="li"
              >
               <img :src="serverUrl+item.coverImg" class="Index-img"/>
               <h2 class="Index-name">{{item.name}}</h2>
@@ -121,10 +121,12 @@ export default {
 </script>
 
 <style scoped>
+#out{display:flex;flex-direction: column;}
 .search {
   padding: 5px 5px;
   height: 100%;
   line-height: 100%;
+  flex:0;
 }
 .info {
   float: left;

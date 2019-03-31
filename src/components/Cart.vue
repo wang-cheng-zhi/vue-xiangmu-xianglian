@@ -1,38 +1,34 @@
 <template>
   <div class="shop">
     <header>
-      <van-nav-bar title="购物车" left-text="返回" left-arrow>
+      <van-nav-bar title="购物车" left-text="返回" left-arrow @click-left="fanhui()">
         <van-icon name="search" slot="right" />
       </van-nav-bar>
     </header>
     <section>
-      <div class="cart" v-for="item in shopCart" :key="item.product._id">
-        <van-checkbox v-model="checked"></van-checkbox>
+      <div class="cart" v-for="(item,index) in shopCart" :key="item.product._id">
+        <van-checkbox v-model="checklist[index]"></van-checkbox>
         <van-card
           :num="item.quantity"
-          tag="标签"
+          tag="Hot"
           :price="item.product.price"
           :title="item.product.name"
           :thumb="item.product.coverImg?serverUrl+item.product.coverImg:''"
           :desc="item.product.descriptions"
-          origin-price="10.00"
-          :thumb-link='"/#/detail?id="+item.product._id'
+          :origin-price="item.product.price"
+          :thumb-link='`/#/detail/${item.product._id}`'
         >
         <van-stepper v-model="val" />
           <div slot="footer">
             <van-button size="mini">修改</van-button>
-            <van-button size="mini" @click="delShop(item.product._id)">删除</van-button>
+            <van-button size="mini" @click="delShop(item._id)">删除</van-button>
           </div>
         </van-card>
       </div>
-
     </section>
     <div>
-      <van-submit-bar :price="3050"  button-text="提交订单" @submit="onSubmit" >
-        <van-checkbox v-model="checked">全选</van-checkbox>
-        <span slot="tip">
-          你的收货地址不支持同城送, <span>修改地址</span>
-        </span>
+      <van-submit-bar :price="totPrice"  button-text="提交订单" @submit="onSubmit()" >
+        <van-checkbox v-model="checked" @click="selAll()">全选</van-checkbox>
       </van-submit-bar>
     </div>
     <van-tabbar v-model="active" active-color="#fa2c5c">
@@ -55,12 +51,16 @@ export default {
       active:2,
       imageURL:require("../images/cart-1.jpg"),
       checked:true,
+      checklist:[],
       shopCart:[],
       val:1,
       serverUrl,
     }
   },
   methods: {
+    fanhui(){
+      history.go(-1)
+    },
     onSubmit(){
 
     },
@@ -68,31 +68,70 @@ export default {
       this.active = msg;
       console.log(msg)
     },
-    delShop(id){
+    async getShopData(){  //获取购物车数据
+      var arr = [];
       if(sessionStorage.getItem("token")){
-        this.shopCart= delFromProduct(id)
+        var data = await getShopCart()
+        data.data.forEach(function(item){
+          if(item.product){
+            // console.log(item.product)
+            arr.push(item)
+          }
+        })
+      }else{
+        this.$router.push("/login")
       }
+      return arr;
+    },
+    async delShop(id){
+      console.log(id)
+      if(sessionStorage.getItem("token")){
+        var data = await delFromProduct(id)
+        if(data.status == 200){
+          this.shopCart = await this.getShopData();
+        }
+      }
+    },
+    selAll(){//全选/全不选
+      var arr = [];
+      if(this.checked){
+        for(var i = 0;i<this.shopCart.length;i++){
+          arr.push(true)
+        }
+      }else{
+        for(var i = 0;i<this.shopCart.length;i++){
+          arr.push(false)
+        }
+      }
+      console.log(this.checked,this.checklist,"1")
+      this.checklist = arr;
+    }
+  },
+  computed:{
+    totPrice() {
+      var tot = 0;
+      var shop = this.shopCart;
+      var sel = this.checklist;
+      var that = this;
+      shop.forEach(function(item,i){
+        if(sel[i]){
+          tot += item.product.price * item.quantity;
+          tot = parseFloat((tot).toFixed(2))
+          // console.log(tot)
+        }else{
+          that.checked = false;
+        }
+      })
+      return tot*100;
     }
   },
   mounted(){
   },
   async created() {
-    if(sessionStorage.getItem("token")){
-      var data = await getShopCart()
-      var that = this;
-      // this.shopCart = data.data
-      // console.log(this.shopCart);
-      // var list = this.shopCart;
-      data.data.forEach(function(item){
-        if(item.product){
-          console.log(item.product)
-          that.shopCart.push(item)
-        }
-
-      })
-    }else{
-      this.$router.push("/login")
-    }
+    this.shopCart = await this.getShopData();
+    console.log(this.shopCart)
+    //默认全选中
+    this.selAll();
   }
 };
 </script>

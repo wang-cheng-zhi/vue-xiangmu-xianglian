@@ -70,3 +70,13 @@ export function getShopCartCount() {
   myCarts.forEach(item => result += item.quantity)
   return result
 }
+
+
+
+export function getUserInfo () {
+  return axios.get("/api/v1/users/info",{
+    headers:{"Authorization":`Bearer ${sessionStorage.getItem("token")}`}
+  })
+}
+
+

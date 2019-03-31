@@ -71,7 +71,7 @@ const router = new Router({
       component: Reg
     },
     {
-      path: "/:id",
+      path: "/detail/:id",
       name: 'Detail',
       component: Detail
     }

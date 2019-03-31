@@ -11,9 +11,13 @@
         <van-swipe-item><img :src="detail.coverImg?serverUrl+detail.coverImg:''"/></van-swipe-item>
       </van-swipe>
       <div class="detail-title">{{detail.name}}</div>
-      <div class="detail-price">价格￥ {{detail.price}}</div>
-      <div class="detail-color"><span class="detail-color-size">库存</span><div class="detail-color-fenlei">{{detail.quantity}}件</div></div>
-      <div class="detail-color"><span class="detail-color-size">颜色</span><div class="detail-color-fenlei">红色</div></div>
+      <div class="detail-price">价格￥ {{detail.price}}元</div>
+      <div class="detail-color">
+        <span class="detail-color-size">库存</span>
+        <div class="detail-color-fenlei">{{detail.quantity}}件</div>
+      </div>
+      <div class="detail-color"><span class="detail-color-size">颜色</span>
+      <div class="detail-color-fenlei">红色</div></div>
       <ul class="detail-firstul">
           <li><img src="../images/detail-4.gif"/>原装正品</li>
           <li><img src="../images/detail-4.gif"/>闪电发货</li>
@@ -41,8 +45,8 @@
 
       <div class="van-goods-div-action">
         <van-goods-action>
-          <van-goods-action-mini-btn  icon="wap-home"  text="首页"  @click="ToIndex"/>
-          <van-goods-action-mini-btn   info="5"  icon="cart-o"  text="购物车"  @click="ToCart"/>
+          <van-goods-action-mini-btn  icon="wap-home"  text="首页"  @click="ToIndex()"/>
+          <van-goods-action-mini-btn   info="5"  icon="cart-o"  text="购物车"  @click="ToCartOne()"/>
           <van-goods-action-mini-btn  icon="shop-o"  text="店铺" />
           <van-goods-action-big-btn text="加入购物车" @click="ToCart(detail._id)"/>
           <van-goods-action-big-btn  primary  text="立即购买"  />
@@ -76,13 +80,19 @@ export default {
     }
   },
   methods: {
+    ToCartOne(){
+      this.$router.push("/cart");
+    },
     fanhui(){
       history.go(-1);
     },
-    ToCart(id){
+    async ToCart(id){
       if(sessionStorage.getItem("token")){
         console.log(sessionStorage.getItem("token"))
-        addToShopCart(id, 1)
+        const data=await addToShopCart(id, 1)
+        if(data.data.code == "success"){
+          this.$router.push("/cart")
+        }
       }else{
         this.$router.push("/login")
       }

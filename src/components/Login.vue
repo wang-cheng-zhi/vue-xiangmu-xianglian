@@ -4,7 +4,6 @@
       title="登录"
       left-text
       right-text="新用户"
-      left-arrow
       @click-left="onClickLeft"
       @click-right="onClickRight"
     />

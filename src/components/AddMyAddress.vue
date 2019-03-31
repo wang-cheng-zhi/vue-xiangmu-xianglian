@@ -1,74 +1,102 @@
 <template>
   <div>
     <header>
-      <van-nav-bar title="新增地址" left-text="返回" left-arrow  @click-left="ToMyAddress()">
+      <van-nav-bar title="新增地址" left-text="返回" left-arrow  >
         <van-icon />
       </van-nav-bar>
     </header>
     <section>
-      <van-cell-group>
-        <van-field
-          v-model="username"
-          required
-          clearable
-          label="收货人"
-          right-icon="question-o"
-          placeholder="请填写真实姓名，否则无法配送"
-          @click-right-icon="$toast('question')"
-        />
-
-        <van-field
-          v-model="password"
-          type="text"
-          label="手机号"
-          placeholder="请输入手机号"
-          required
-        />
-
-         <van-field
-          v-model="addressdiqu"
-          type="text"
-          label="所在地区"
-          placeholder="请填写所在地区"
-          required
-        />
-
-         <van-field
-          v-model="addressxiangxi"
-          type="text"
-          label="详细地址"
-          placeholder="填写详细地址"
-          required
-        />
-
-      <van-cell  title="设为默认地址"  />
-      <van-switch v-model="checked" />
-      </van-cell-group>
+     <van-address-edit
+      :area-list="areaList"
+      show-postal
+      show-delete
+      show-set-default
+      show-search-result
+      :search-result="searchResult"
+      @save="onSave()"
+      @delete="onDelete"
+      @change-detail="onChangeDetail"
+    />
     </section>
-
-    <footer>
-      <button class="Add-wancheng" @click="ToMyAddress()">完成</button>
-    </footer>
   </div>
 </template>
 
 <script>
+import areaList from "@/assets/area/area.js"
 export default {
   name:"AddMyAddress",
   data() {
     return {
-      username:"李大",
-      password:"1111",
-      addressdiqu:"上海",
-      addressxiangxi:"上海市黄浦区南京路",
-       checked: true
+      isDefault:true,
+      content:[],
+      areaList,
+      searchResult:[
+        { id: '1',
+        name: '张三',
+        tel: '13000000000',
+        address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室'
+        }
+      ],
+      addressInfo:"",
+
     }
   },
   methods: {
-    ToMyAddress(){
-      history.go(-1)
+    save(){
+      console.log("1")
+    },
+    onSave(content) {
+      // let addr = new Object;
+      // console.log('content');
+      // console.log(content);
+      var arr = document.getElementsByClassName("van-field__control").value();
+      var sel = document.getElementsByClassName("van-switch--on").value();
+      console.log(arr,sel)
+
+      // let len = this.list.length + 1;
+      // addr = {
+      //   id:len,
+      //   name:content.name,
+      //   tel:content.tel,
+      //   city:content.city,
+      //   county:content.county,
+      //   is_default:content.is_default,
+      //   postal_code:content.postal_code,
+      //   province:content.province,
+      //   area_code:content.area_code,
+      //   address:content.province+content.city+content.county+content.address_detail
+      // };
+      // let is_add = this.list.push(addr);
+      //       // 判断是否选中默认
+      //   if (content.is_default) {
+      //     this.chosenAddressId = len;
+      //   }
+      //   if (is_add) {
+      //     this.show1 = false;
+      //   }
+      //   console.log(this.list);
+      //   this.list = listArr;
+      //   this.list = [{
+      //     id: '1',
+      //     name: '张三',
+      //     tel: '13000000000',
+      //     address: '浙江省杭州市西湖区文三路 138 号东方通信大厦 7 楼 501 室'
+      //   }];
+    },
+    onDelete() {
+      Toast('delete');
+    },
+    onChangeDetail(val) {
+      if (val) {
+        this.searchResult = [{
+          name: '黄龙万科中心',
+          address: '杭州市西湖区'
+        }];
+      } else {
+        this.searchResult = [];
+      }
     }
-  },
+  }
 }
 </script>
 
