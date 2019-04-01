@@ -62,6 +62,7 @@ export default {
         .then(res => {
           if (res.data.code == "success"  ) {
             sessionStorage.setItem("token", res.data.token);
+            sessionStorage.setItem("user", JSON.stringify(this.username));
           this.$router.push({
             name:'Index'
           })
