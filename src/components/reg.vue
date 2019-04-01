@@ -59,7 +59,13 @@ export default {
         .then(res => {
           console.log(res);
           if(res.data.code=="success") {
-            this.$router.push('/login')
+            sessionStorage.setItem("token", res.data.token);
+            sessionStorage.setItem("user", JSON.stringify(this.username));
+            this.$router.push('/');
+            this.$toast.loading({
+              mask:true,
+              message:'注册成功，正在跳转首页...'
+            })
           }
         })
         .catch(err => {
