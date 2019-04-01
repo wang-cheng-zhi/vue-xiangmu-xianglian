@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <van-nav-bar title="新增地址" left-text="返回" left-arrow  >
+      <van-nav-bar title="新增地址" left-text="返回" left-arrow @click-left="back()" >
         <van-icon />
       </van-nav-bar>
     </header>
@@ -44,6 +44,9 @@ export default {
   methods: {
     save(){
       console.log("1")
+    },
+    back() {
+      history.go(-1);
     },
     onSave(content) {
       // let addr = new Object;
