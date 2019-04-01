@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="out">
     <van-nav-bar
       title="登录"
       left-text
@@ -88,14 +88,17 @@ export default {
 </script>
 
 <style scoped>
+#out{
+  height: 100vh;
+}
 .loginbg {
-  height: 17rem;
+  height: 19rem;
   text-align: center;
 }
 .loginbg img {
   width: 100%;
 }
-.loginbg {
+.loginbg p{
   font-weight: 500;
   font-size: 1.4rem;
 }
