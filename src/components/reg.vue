@@ -52,7 +52,7 @@ export default {
     reg() {
       // http://10.8.164.6:8000/app/login
       if(this.username != "" && this.password != ""){
-        post("http://api.cat-shop.penkuoer.com/api/v1/auth/reg", {
+        post("https://api.cat-shop.penkuoer.com/api/v1/auth/reg", {
         userName: this.username,
         password: this.password
       })
