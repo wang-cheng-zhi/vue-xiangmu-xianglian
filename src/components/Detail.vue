@@ -46,7 +46,7 @@
       <div class="van-goods-div-action">
         <van-goods-action>
           <van-goods-action-mini-btn  icon="wap-home"  text="首页"  @click="ToIndex()"/>
-          <van-goods-action-mini-btn   info="5"  icon="cart-o"  text="购物车"  @click="ToCartOne()"/>
+          <van-goods-action-mini-btn     icon="cart-o"  text="购物车"  @click="ToCartOne()"/>
           <van-goods-action-mini-btn  icon="shop-o"  text="店铺" />
           <van-goods-action-big-btn text="加入购物车" @click="ToCart(detail._id)"/>
           <van-goods-action-big-btn  primary  text="立即购买"  />
