@@ -45,12 +45,12 @@
       </div>
     </div>
 
-    <van-row>
+    <van-row class="di">
       <van-col span="8" class="toj1">
         <span class="custom-text">友店爆料</span>
         <van-tag color="#f2826a" plain>重磅</van-tag>
       </van-col>
-      <van-col span="15">
+      <van-col span="15" class="toj2">
         <van-notice-bar
           text="《星链通证经济白皮书》首发，以“见证未来”为主题的星链·供应链云暨《星链通证经济白皮书》发布会，在深圳隆重举行。"
           background="#ffffff"
@@ -103,12 +103,29 @@ export default {
   width: 45%;
   float: right;
 }
+.di{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+}
 .ti3 {
   width: 100%;
 }
 .toj1 {
   margin: 8px 0px;
   margin-left: 0.8rem;
+  width:30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.toj2{
+  width: 55%
 }
 .bk{
   width: 92%;
@@ -116,5 +133,6 @@ export default {
   margin: 0 4%;
   color: #696969
 }
+
 
 </style>

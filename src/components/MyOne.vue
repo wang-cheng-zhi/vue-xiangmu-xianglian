@@ -17,13 +17,13 @@
       </router-link>
     </ul>
     <ul class="xing">
-      <router-link to="/xzsc">
+      <router-link to="" >
         <img src="../assets/images/myone4.jpg" alt="星钻商城">
       </router-link>
-      <router-link to="/wkzq">
+      <router-link to="" >
         <img src="../assets/images/myone3.jpg" alt="挖矿专区">
       </router-link>
-      <router-link to="/xlzh">
+      <router-link to="" >
         <img src="../assets/images/myone2.jpg" alt="星链账户">
       </router-link>
     </ul>
@@ -96,7 +96,8 @@ export default {
   },
   methods: {
     ToLogin(){
-      sessionStorage.setItem("token","")
+      // sessionStorage.setItem("token","")
+      sessionStorage.clear()
       this.$router.push("/login")
     },
     ToCoupon(){

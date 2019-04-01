@@ -135,7 +135,7 @@ export default {
 
 <style scoped="">
 section{flex: 1;overflow: auto;margin-bottom:5rem;}
-.van-swipe{width: 100%;}
+.van-swipe{width: 100%;padding-top: 3rem;}
 .van-swipe img{width: 100%;}
 .van-submit-bar{bottom: 1.7rem;}
 .van-goods-div-action{height: 0.5rem;width: 100%;}
@@ -157,5 +157,13 @@ overflow: hidden;height: 2rem;}
 .TuwenDetail img {width: 100%;}
 .detail-desc{font-size: 0.8rem;color: #000000;line-height: 2rem;padding: 0 0.75rem 0 0.33rem;
 overflow: hidden;height: 4rem;margin-top: 0.5rem;}
+.van-nav-bar{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  position: fixed;
+}
 </style>
 

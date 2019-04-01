@@ -3,8 +3,9 @@
     <van-nav-bar
       title="登录"
       left-text
+      left-arrow=""
       right-text="新用户"
-      @click-left="onClickLeft"
+      @click-left="onClickLeft()"
       @click-right="onClickRight"
     />
     <div class="loginbg">
@@ -49,7 +50,7 @@ export default {
   },
   methods: {
     onClickLeft() {
-      history.go(-1);
+      this.$router.push('/')
     },
     onClickRight() {
       this.$router.push("/reg");
@@ -69,6 +70,7 @@ export default {
             // this.$toast('登录成功');
             this.$toast.loading({
               mask:true,
+              duration:1000,
               message:'正在跳转...'
             })
           }else{

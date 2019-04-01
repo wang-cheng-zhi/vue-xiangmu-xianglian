@@ -2,7 +2,7 @@
   <div>
     <van-nav-bar
       title="新用户注册"
-      left-text
+      left-text="返回"
       right-text
       left-arrow
       @click-left="onClickLeft"
@@ -29,7 +29,6 @@
       </div>
     </van-cell-group>
 
-
     <van-button type="info" round size="large" @click="reg">注册</van-button>
   </div>
 </template>
@@ -38,7 +37,7 @@
 import { post } from "axios";
 
 export default {
-  name:"Reg",
+  name: "Reg",
   data() {
     return {
       username: "",
@@ -47,30 +46,36 @@ export default {
   },
   methods: {
     onClickLeft() {
-      history.go(-1);
+      this.$router.push('/login')
     },
     onClickRight() {},
     reg() {
       // http://10.8.164.6:8000/app/login
-      post("http://api.cat-shop.penkuoer.com/api/v1/auth/reg", {
+      if(this.username != "" && this.password != ""){
+        post("http://api.cat-shop.penkuoer.com/api/v1/auth/reg", {
         userName: this.username,
         password: this.password
       })
         .then(res => {
-          console.log(res);
-          if(res.data.code=="success") {
+          if (res.data.code == "success") {
             sessionStorage.setItem("token", res.data.token);
             sessionStorage.setItem("user", JSON.stringify(this.username));
-            this.$router.push('/');
+            this.$router.push("/");
             this.$toast.loading({
-              mask:true,
-              message:'注册成功，正在跳转首页...'
-            })
+              mask: true,
+              duration:1000,
+              message: "注册成功，正在跳转首页..."
+            });
+          }else{
+            this.$toast('用户名已存在')
           }
         })
         .catch(err => {
           console.log(err);
         });
+      }else{
+        this.$toast('请输入用户名及密码')
+      }
     }
   }
 };
@@ -88,14 +93,16 @@ export default {
   font-weight: 500;
   font-size: 1.4rem;
 }
-.tishi{
+.tishi {
   color: #696969;
   font-size: 0.8rem;
-  margin: 2% 6%;
+  margin: 3% 6%;
 }
-.van-field{
+.van-field {
   width: 90%;
-  margin: 0% 5%
+  margin: 0% 5%;
 }
-
+.van-cell-group {
+  margin-bottom: 5%;
+}
 </style>
