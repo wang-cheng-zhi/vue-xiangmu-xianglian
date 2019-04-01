@@ -60,20 +60,24 @@ export default {
         password: this.password
       })
         .then(res => {
-          if (res.code == "success") {
+          if (res.data.code == "success"  ) {
+            sessionStorage.setItem("token", res.data.token);
+            sessionStorage.setItem("user", JSON.stringify(this.username));
+          this.$router.push({
+            name:'Index'
+          })
             // this.$toast('登录成功');
             this.$toast.loading({
               mask:true,
               message:'正在跳转...'
             })
+          }else{
+            this.$toast(res.data.message)
           }
-          sessionStorage.setItem("token", res.data.token);
-          this.$router.push({
-            name:'Index'
-          })
+
+
         })
         .catch(err => {
-          this.$toast(res.data.message);
           console.log(err);
         });
     }
